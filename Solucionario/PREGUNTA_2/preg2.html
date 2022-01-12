@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Uso del objeto XMLHttpRequest - Grupo 01</h2>
+
+<div id="demo">
+<button type="button" onclick="loadXMLDoc()">Click para cambiar contenido</button>
+</div>
+
+<script>
+function loadXMLDoc() {
+ var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "ejemplo.xml", true);
+    xhttp.send();
+    xmlDoc = xmlhttp.responseXML;
+}
+</script>
+
+</body>
+</html>

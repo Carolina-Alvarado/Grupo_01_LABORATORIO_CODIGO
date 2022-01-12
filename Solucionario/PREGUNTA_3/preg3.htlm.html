@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style media="screen">
+    h2{
+      margin: 2% auto;
+      font-family: 'Verdana', sans-serif;
+    }
+
+    select{
+      display: block;
+      font-size: 16px;
+      font-family: 'Verdana', sans-serif;
+      font-weight: 400;
+      color: rgb(8, 8, 8);
+      line-height: 1.3;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Selecciona tu comida favorita</h2>
+
+<select id="myselect" onchange="getValue(this)">
+  <option value="Platillo favorito">Platillo favorito:</option>
+  <option value="Camarones Apanados">Camarones Apanados</option>
+  <option value="Pescado frito">Pescado frito</option>
+  <option value="Bolon de Verde">Bolon de Verde</option>
+  <option value="Tigrillo">Tigrillo</option>
+  <option value="Encebollado">Encebollado</option>
+</select>
+
+<p id=demo></p>
+
+<script>
+function getValue(selectOption) {
+
+  var values = selectOption.value;
+  var obj = JSON.stringify({Platillofavorito:values});
+  var sel = JSON.parse(obj);
+  console.log(sel);
+
+  var  text = "<table border='1'>"
+    for (x in sel) {
+      text += "<tr><td>" + "Platillo favorito" + "</td></tr>";
+      text += "<tr><td>" + sel.Platillofavorito + "</td></tr>";
+    }
+    text += "</table>"
+
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html>
